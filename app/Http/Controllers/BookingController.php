@@ -82,25 +82,25 @@ class BookingController extends Controller
             ], 500);
         }
 
-    //     if ($isSaved) {
-    // // إشعار للكستومر
-    // NotificationController::send(
-    //     Customer::find($request->customer_id),
-    //     'Booking Confirmed',
-    //     'Your booking has been confirmed for ' . $request->booking_date
-    // );
+        if ($isSaved) {
+    // إشعار للكستومر
+    NotificationController::send(
+        Customer::find($request->customer_id),
+        'Booking Confirmed',
+        'Your booking has been confirmed for ' . $request->booking_date
+    );
 
-    // // إشعار للفرقة
-    // NotificationController::send(
-    //     Team::find($request->team_id),
-    //     'New Booking',
-    //     'You have a new booking on ' . $request->booking_date
-    // );
+    // إشعار للفرقة
+    NotificationController::send(
+        Team::find($request->team_id),
+        'New Booking',
+        'You have a new booking on ' . $request->booking_date
+    );
 
-    // return response()->json(['icon' => 'success', 'title' => 'Booking created successfully'], 200);
+    return response()->json(['icon' => 'success', 'title' => 'Booking created successfully'], 200);
 
 
-    //     }
+        }
     }
 
     /**

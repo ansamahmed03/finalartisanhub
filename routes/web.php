@@ -9,6 +9,7 @@ use App\Http\Controllers\CityController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderItemController;
 use App\Http\Controllers\PermissionController;
@@ -174,6 +175,14 @@ Route::get('booking_restore/{id}',   [BookingController::class, 'restore'])->nam
 Route::get('booking_force/{id}',     [BookingController::class, 'force'])->name('booking_force');
 Route::get('booking_forceAll',       [BookingController::class, 'forceAll'])->name('booking_forceAll');
 Route::resource('booking', BookingController::class);
+
+
+Route::post('notification_update/{id}',  [NotificationController::class, 'update'])->name('notification_update');
+Route::get('notification_trashed',        [NotificationController::class, 'trashed'])->name('notification_trashed');
+Route::get('notification_restore/{id}',   [NotificationController::class, 'restore'])->name('notification_restore');
+Route::get('notification_force/{id}',     [NotificationController::class, 'force'])->name('notification_force');
+Route::get('notification_forceAll',       [NotificationController::class, 'forceAll'])->name('notification_forceAll');
+Route::resource('notification', NotificationController::class);
 
 
 

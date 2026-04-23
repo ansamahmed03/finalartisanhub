@@ -568,7 +568,7 @@
           </li>
           @endcanany
 
-           @if(auth('admin')->check() || auth('artisan')->check())
+           @if(auth('admin')->check() || auth('artisan')->check() || auth('customer')->check())
           @canany(['Index Product', 'Create Product'])
           <li class="nav-item">
             <a href="#" class="nav-link">
@@ -797,6 +797,43 @@
 
 
 
+                <li class="nav-item">
+    <a href="#" class="nav-link">
+        <i class="nav-icon fas fa-calendar-alt"></i>
+        <p>
+          Notification
+            <i class="fas fa-angle-left right"></i>
+        </p>
+    </a>
+    <ul class="nav nav-treeview">
+        @can('Create Notification')
+        <li class="nav-item">
+            <a href="{{ route('notification.create') }}" class="nav-link">
+                <i class="fas fa-search nav-icon"></i>
+                <p>Create Notification</p>
+            </a>
+        </li>
+        @endcan
+    </ul>
+    <ul class="nav nav-treeview">
+        @can('Index Notification')
+        <li class="nav-item">
+            <a href="{{ route('notification.index') }}" class="nav-link">
+                <i class="fas fa-search nav-icon"></i>
+                <p>View All Booking</p>
+            </a>
+        </li>
+        @endcan
+    </ul>
+</li>
+
+
+
+
+
+
+
+
 
 
 
@@ -949,6 +986,8 @@
         $editUrl = url('/cms/Admin/artisans/' . auth('artisan')->id() . '/edit');
     } elseif(auth('team')->check()) {
         $editUrl = url('/cms/Admin/teams/' . auth('team')->id() . '/edit');
+    }elseif(auth('customer')->check()) {
+        $editUrl = url('/cms/Admin/customers/' . auth('customer')->id() . '/edit');
     }
 @endphp
 
