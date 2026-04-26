@@ -15,6 +15,66 @@
   <link rel="stylesheet" href="{{ asset('cms/dist/css/adminlte.min.css') }}">
     <link rel="stylesheet" href="{{ asset('cms/plugins/summernote/summernote-bs4.min.css') }}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
+
+    <style>
+
+        
+  body.login-page {
+
+    background: linear-gradient(rgba(30, 60, 114, 0.8), rgba(42, 82, 152, 0.8)),
+                url('https://images.unsplash.com/photo-1513519245088-0e12902e5a38?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif !important;
+  }
+
+  .login-box {
+    margin-top: 0;
+  }
+
+
+  .login-card-body {
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  }
+
+  .login-logo a {
+    color: #fff !important;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    font-weight: 800;
+    letter-spacing: 1px;
+  }
+
+
+  .btn-primary {
+    background: linear-gradient(45deg, #1e3a8a, #3b82f6);
+    border: none;
+    border-radius: 8px;
+    transition: 0.3s;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+  }
+
+
+  .form-control {
+    border-radius: 8px;
+  }
+
+  .input-group-text {
+    border-radius: 0 8px 8px 0 !important;
+  }
+</style>
+
+
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
@@ -106,7 +166,7 @@
       window.location.href = response.data.url;
     })
     .catch(function (error) {
-            // الفشل: عرض الخطأ
+
             if (error.response && error.response.data.errors !== undefined) {
                 showErrorMessages(error.response.data.errors);
             } else if (error.response) {

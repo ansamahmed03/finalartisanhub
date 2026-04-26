@@ -207,7 +207,9 @@ Route::resource('notification', NotificationController::class);
 );
 Route::prefix('cms/{guard}')->middleware('auth:admin,team,customer,artisan')->group(function() {
     Route::get('home', [DashboardController::class, 'index'])->name('cms.home');
-
+     Route::get('/contact-us', function () {
+    return view('cms.contact'); // تأكدي من مسار الملف داخل مجلد views
+})->name('contact');
     // مسارات العرض مسموحة للجميع
     Route::get('artisans', [ArtisanController::class, 'index'])->name('artisans.index');
     Route::get('artisans/{id}', [ArtisanController::class, 'show'])->name('artisans.show');
